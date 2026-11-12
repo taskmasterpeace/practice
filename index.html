@@ -235,7 +235,7 @@ canvas.confetti{position:fixed;inset:0;width:100%;height:100%;pointer-events:non
     </div>
     <div class="tally">
       <div class="starbox" title="Stars earned"><svg width="22" height="22" viewBox="0 0 24 24"><path d="M12 2l3 6.6 7.2.8-5.4 4.9 1.5 7.1L12 17.8 5.7 21.4l1.5-7.1L1.8 9.4 9 8.6z" fill="#ffbf3c"/></svg><span id="starTotal">0</span><span style="opacity:.6" id="starMax">/ 51</span></div>
-      <button class="iconbtn" id="voiceBtn" aria-label="Read aloud" title="Read aloud"></button><button class="iconbtn" id="soundBtn" aria-label="Sound effects" title="Sound effects"></button>
+      <button class="iconbtn" id="voiceBtn" aria-label="Read aloud" title="Read aloud"></button><button class="iconbtn" id="soundBtn" aria-label="Sound effects" title="Sound effects"></button><button class="iconbtn" id="resetBtn" aria-label="Start over" title="Start over: clear all stars"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>
     </div>
   </header>
 
@@ -448,6 +448,10 @@ function paintToggles(){
 soundBtn.onclick=()=>{saved.sound=!saved.sound;save();paintToggles();sTap();};
 voiceBtn.onclick=()=>{saved.voice=!saved.voice;save();paintToggles(); if(saved.voice) say('Read aloud is on.'); else { try{speechSynthesis.cancel();}catch(e){} } };
 paintToggles();
+/* reset (11-12 Robert: practice again tonight, needs a way to start over). Also ?reset=1 in the link. */
+function resetAll(){ saved.stars={}; save(); location.replace(location.pathname); }
+document.getElementById('resetBtn').onclick=()=>{ if(confirm('Start over? This clears every star on this iPad.')) resetAll(); };
+if(/[?&]reset=1/.test(location.search)) resetAll();
 
 /* ---------- helpers ---------- */
 const $ = (s,el=document)=>el.querySelector(s);
