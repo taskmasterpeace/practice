@@ -3,12 +3,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-title" content="Practice">
+<meta name="apple-mobile-web-app-title" content="Homework Branch">
 <meta name="theme-color" content="#0b4f6c">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Ccircle cx='24' cy='24' r='22' fill='%231f7a96'/%3E%3Cpath d='M16 21c3-6 9-8 13-5 2 2 1 5-2 6-4 1-8 1-11-1z' fill='%23ffbf3c'/%3E%3C/svg%3E">
 <style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}[hidden]{display:none!important}img{max-width:100%}</style>
 </head><body>
-<title>Map Quest</title>
+<title>Homework Branch</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -82,6 +82,7 @@ dialog.mq::backdrop{background:rgba(11,79,108,.55)}
 .arcade .empty{text-align:center;color:#8fb6c4;font-family:var(--body);margin:4px 0}
 .newhs{font-family:var(--display);color:var(--coral);font-size:1.5rem;letter-spacing:.06em;animation:hsblink .5s steps(2) 8}
 .newhs.small{font-size:1.15rem;color:var(--go)}
+.badges{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:.6rem}.bdg{border-radius:14px;padding:.7rem .5rem;text-align:center;background:#f3f7f8;border:2px dashed #c9d8dd;color:#7b8f96}.bdg.got{background:#fff6dc;border:2px solid var(--sun);color:var(--sea-deep)}.bdg .bi{font-size:1.9rem;line-height:1;filter:grayscale(1);opacity:.45}.bdg.got .bi{filter:none;opacity:1}.bdg b{display:block;font-size:.95rem;margin:.3rem 0 .15rem}.bdg small{font-size:.78rem;line-height:1.2;display:block}.newbadge{display:inline-flex;gap:.4rem;align-items:center;background:#fff6dc;border:2px solid var(--sun);border-radius:999px;padding:.3rem .8rem;font-weight:800;color:var(--sea-deep);animation:pop .5s ease}@keyframes pop{0%{transform:scale(.6)}70%{transform:scale(1.08)}100%{transform:scale(1)}}
 .hsnote{margin:0;color:var(--muted);font-size:.92rem}
 @keyframes hsblink{50%{opacity:.25}}
 @media (prefers-reduced-motion:reduce){.newhs{animation:none}}
@@ -269,18 +270,18 @@ canvas.confetti{position:fixed;inset:0;width:100%;height:100%;pointer-events:non
   <header class="top">
     <div class="brand">
       <svg width="46" height="46" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="22" fill="#1f7a96"/><path d="M10 30c4-2 7-1 10 1s7 2 10-1 6-3 8-1" stroke="#bfe6ec" stroke-width="3" fill="none" stroke-linecap="round"/><path d="M16 21c3-6 9-8 13-5 2 2 1 5-2 6-4 1-8 1-11-1z" fill="#ffbf3c"/><circle cx="33" cy="14" r="3" fill="#f26b4f"/></svg>
-      <div><h1>Map Quest</h1><p id="sub">Practice</p></div>
+      <div><h1>Homework Branch</h1><p id="sub">Practice</p></div>
     </div>
     <div class="tally">
       <div class="starbox" title="Stars earned"><svg width="22" height="22" viewBox="0 0 24 24"><path d="M12 2l3 6.6 7.2.8-5.4 4.9 1.5 7.1L12 17.8 5.7 21.4l1.5-7.1L1.8 9.4 9 8.6z" fill="#ffbf3c"/></svg><span id="starTotal">0</span><span style="opacity:.6" id="starMax">/ 51</span></div>
-      <button class="playerbtn" id="whoBtn" aria-label="Change player" title="Who's playing?"></button><button class="iconbtn" id="hsBtn" aria-label="High scores" title="High scores"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg></button><button class="iconbtn" id="voiceBtn" aria-label="Read aloud" title="Read aloud"></button><button class="iconbtn" id="soundBtn" aria-label="Sound effects" title="Sound effects"></button><button class="iconbtn" id="resetBtn" aria-label="Start over" title="Start over: clear this player&#39;s stars"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>
+      <button class="playerbtn" id="whoBtn" aria-label="Change player" title="Who's playing?"></button><button class="iconbtn" id="hsBtn" aria-label="My badges" title="My badges"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="9" r="6"/><path d="M8.2 13.8 7 22l5-3 5 3-1.2-8.2"/></svg></button><button class="iconbtn" id="voiceBtn" aria-label="Read aloud" title="Read aloud"></button><button class="iconbtn" id="soundBtn" aria-label="Sound effects" title="Sound effects"></button><button class="iconbtn" id="resetBtn" aria-label="Start over" title="Start over: clear this player&#39;s stars"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>
     </div>
   </header>
 
   <nav class="lessons" id="lessons" aria-label="Lessons"></nav>
   <nav class="modes" id="modes" aria-label="Games"></nav>
   <main id="main"></main>
-  <p class="foot">Tip for grown-ups: start with <b>Explore</b>, then <b>Find It</b> and <b>Label the Map</b>. Tap the speech bubble at the top to turn reading aloud on or off. Tap the name at the top to switch players, and the trophy for high scores. Stars and scores save on this device.</p>
+  <p class="foot">Tip for grown-ups: start with <b>Explore</b>, then <b>Find It</b> and <b>Label the Map</b>. Tap the speech bubble at the top to turn reading aloud on or off. Tap the name at the top to switch players, and the medal for badges. There are no scores to compare: each child earns their own stars and badges. Stars and scores save on this device.</p>
   <dialog class="mq" id="whoDlg"></dialog>
   <dialog class="mq" id="hsDlg"></dialog>
 </div>
@@ -459,20 +460,47 @@ const esc = t=>String(t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt
 const AVC = ['#f26b4f','#1f9d5c','#1f7a96','#d4880b','#d64592','#2b6cb0'];
 const avColor = n=>AVC[[...String(n)].reduce((a,c)=>a+c.charCodeAt(0),0)%AVC.length];
 const avatar = n=>`<span class="av" style="background:${avColor(n)}">${esc(String(n).trim().charAt(0).toUpperCase()||'?')}</span>`;
-const pct = e=>e.t?e.s/e.t:0;
-const byRank = (a,b)=>pct(b)-pct(a) || b.s-a.s || a.d-b.d;     // tie: whoever got it first stays on top, like the arcade
-function addScore(g,score,total,st){
-  const e={id:Date.now()+'-'+Math.random().toString(36).slice(2,6), n:saved.current||'Player', g, s:score, t:total, st, d:Date.now()};
-  saved.scores.push(e);
-  const mine=saved.scores.filter(x=>x.g===g).sort(byRank), keep=new Set(mine.slice(0,10).map(x=>x.id));
-  saved.scores=saved.scores.filter(x=>x.g!==g||keep.has(x.id)); save();
-  const r=mine.findIndex(x=>x.id===e.id)+1; return {rank:r<=10?r:0, id:e.id};
+/* Achievements (Robert 11-12: "erase all of the scores... figure out achievements to give players"). No ranking between kids. */
+saved.scores=[]; save();
+const BADGES=[
+ ['first','🌱','First steps','Finish your first game'],
+ ['three','⭐','Star power','Get 3 stars in a game'],
+ ['perfect','💯','Perfect round','Get every answer right'],
+ ['five','🔥','On a roll','Finish 5 games'],
+ ['ten','🏅','Ten strong','Finish 10 games'],
+ ['twenty','🏆','Map champion','Finish 20 games'],
+ ['better','📈','Getting better','Beat your own best'],
+ ['allgames','🧭','Explorer','Try every game in one lesson'],
+ ['alllessons','🗺️','World traveler','Play every lesson'],
+ ['days3','📅','Coming back','Play on 3 different days'],
+ ['allstars','🌳','Full branch','Get 3 stars on every game in a lesson'],
+];
+function award(p,ctx){
+  p.badges=p.badges||{}; p.games=(p.games||0)+1; p.played=p.played||{}; p.played[ctx.key]=1;
+  const today=new Date().toISOString().slice(0,10); p.days=p.days||[]; if(!p.days.includes(today)) p.days.push(today);
+  const has=k=>Object.keys(p.played).some(x=>x.startsWith(k+':'));
+  const les=LESSONS.find(l=>ctx.key.startsWith(l.id+':'));
+  const games=les?les.modes.filter(m=>m!=='learn'):[];
+  const test={first:p.games>=1, three:ctx.st===3, perfect:ctx.total>0&&ctx.score===ctx.total, five:p.games>=5, ten:p.games>=10, twenty:p.games>=20,
+    better:ctx.prev>0&&ctx.st>ctx.prev, allgames:!!les&&games.every(m=>p.played[les.id+':'+m]), alllessons:LESSONS.every(l=>has(l.id)),
+    days3:p.days.length>=3, allstars:!!les&&games.every(m=>(p.stars[les.id+':'+m]||0)>=3)};
+  const fresh=BADGES.filter(([id])=>test[id]&&!p.badges[id]); fresh.forEach(([id])=>p.badges[id]=Date.now()); save(); return fresh;
 }
-function boardHTML(g,hi,max=10){
-  const rows=saved.scores.filter(x=>x.g===g).sort(byRank).slice(0,max);
-  const day=d=>new Date(d).toLocaleDateString(undefined,{month:'short',day:'numeric'});
-  return `<div class="arcade"><h3>HIGH SCORES</h3>`+(rows.length?`<table>${rows.map((x,i)=>`<tr class="${x.id===hi?'me':''}"><td class="r">${i+1}.</td><td>${esc(x.n)}</td><td class="s">${x.s}/${x.t}</td><td class="s">${'★'.repeat(x.st)||'·'}</td><td class="s dt">${day(x.d)}</td></tr>`).join('')}</table>`
-    :`<p class="empty">No scores yet. Finish a round to get on the board!</p>`)+`</div>`;
+const badgeCount=p=>Object.keys((p&&p.badges)||{}).length;
+function badgesHTML(p){ return `<div class="badges">${BADGES.map(([id,ic,nm,how])=>`<div class="bdg ${p&&p.badges&&p.badges[id]?'got':''}"><div class="bi">${ic}</div><b>${nm}</b><small>${how}</small></div>`).join('')}</div>`; }
+
+/* Miss Ruth's voice (Homework Tree's voice). Parker has her own clips; other names: Ruth's line, then the name read out. */
+let ruthQ=[], ruthA=null;
+function ruth(kinds,fallback){
+  if(!saved.voice){ return; }
+  const nm=(saved.current||'').trim(), mine=nm.toLowerCase()==='parker';
+  const list=[].concat(kinds).map(k=>({src:'audio/'+k+(mine&&k!=='tryagain'?'-parker':'')+'.mp3', name:!mine&&nm&&k!=='tryagain'&&k!=='badge'?nm:''}));
+  try{ speechSynthesis.cancel(); }catch(e){} if(ruthA){ try{ruthA.pause();}catch(e){} }
+  ruthQ=list; window.__lastSaid=fallback||kinds; next();
+  function next(){ const it=ruthQ.shift(); if(!it) return; const a=new Audio(it.src); ruthA=a;
+    a.onended=()=>{ if(it.name){ say(it.name); setTimeout(next,900);} else next(); };
+    a.onerror=()=>{ if(fallback){ say(fallback); ruthQ=[]; } };
+    const pr=a.play(); if(pr&&pr.catch) pr.catch(()=>{ if(fallback){ say(fallback); ruthQ=[]; } }); }
 }
 
 /* ---------- sound + voice ---------- */
@@ -517,7 +545,7 @@ paintToggles();
 /* reset (11-12 Robert: practice again tonight, needs a way to start over). Also ?reset=1 in the link. */
 function resetAll(){ saved.players={}; saved.current=''; saved.scores=[]; save(); location.replace(location.pathname); }
 document.getElementById('resetBtn').onclick=()=>{ const p=me(); if(!p){ openWho(true); return; }
-  if(confirm(`Start over for ${saved.current}? This clears ${saved.current}'s stars. The high scores stay.`)){ p.stars={}; save(); renderTabs(); say('Fresh start, '+saved.current+'!'); } };
+  if(confirm(`Start over for ${saved.current}? This clears ${saved.current}'s stars. Badges stay.`)){ p.stars={}; save(); renderTabs(); say('Fresh start, '+saved.current+'!'); } };
 if(/[?&]reset=1/.test(location.search)) resetAll();
 
 /* ---------- helpers ---------- */
@@ -594,18 +622,19 @@ function nextStop(modeId){ const i=L.modes.indexOf(modeId); if(i<L.modes.length-
 function finish(modeId,score,total){
   const st = starsFor(score,total), prev = starsOf(L,modeId), nm = saved.current||'Player';
   setStars(modeId,st);
-  const hs = addScore(L.id+':'+modeId,score,total,st);
+  const p=me(), fresh = p ? award(p,{key:L.id+':'+modeId,st,prev,score,total}) : [];
   if(st>=1) sWin();
-  if(st>=2 || hs.rank===1) confetti();
+  if(st>=2 || fresh.length) confetti();
   const cheer = st===3?`Perfect, ${nm}! You are a map master!`:st===2?`Great job, ${nm}! Almost perfect.`:st===1?`Nice work, ${nm}! Try again for more stars.`:`Good practice, ${nm}! Play again to earn a star.`;
-  const flash = hs.rank===1 ? '<div class="newhs">NEW HIGH SCORE!</div>' : hs.rank ? `<div class="newhs small">You made the board: #${hs.rank}</div>` : '';
+  const flash = fresh.length ? `<div>${fresh.map(([id,ic,n])=>`<span class="newbadge">${ic} New badge: ${n}</span>`).join(' ')}</div>` : '';
   const note = st<prev ? `Your best here is still ${prev} star${prev>1?'s':''}. Your star count keeps your best round.` : (st>prev && prev>0 ? `New best! Up from ${prev} star${prev>1?'s':''}.` : '');
-  say(cheer + (hs.rank===1?' New high score!':''));
+  const line = st===3?'three':st===2?'great':st===1?(Math.random()<.5?'good':'wayto'):'tryagain';
+  ruth(fresh.length?[line,'badge']:[line], cheer+(fresh.length?' You earned a new badge!':''));
   return `<div class="result"><div class="eyebrow">Round complete · ${esc(nm)}</div>${flash}
     <div class="stars">${[0,1,2].map(i=>`<span style="animation-delay:${i*.15}s;display:inline-block">${STAR(i<st)}</span>`).join('')}</div>
     <h2 style="font-family:var(--display);font-size:2rem;margin:0">${score} / ${total}</h2>
     <p style="margin:0;font-weight:700">${esc(cheer)}</p>${note?`<p class="hsnote">${note}</p>`:''}
-    ${boardHTML(L.id+':'+modeId,hs.id,5)}
+    <p class="hsnote">Badges: ${badgeCount(p)} of ${BADGES.length}</p>
     <div class="row" style="justify-content:center"><button class="btn" id="again">Play again</button><button class="btn ghosty" id="nextg">Next: ${nextStop(modeId).label}</button></div></div>`;
 }
 function wireFinish(again,modeId){ $('#again').onclick=()=>{sTap();again();}; $('#nextg').onclick=()=>{sTap();nextStop(modeId).run();}; }
@@ -817,15 +846,15 @@ function confetti(){
 }
 
 window.addEventListener('hashchange',()=>{ const p=parseHash(); if(p&&(p[0]!==L||p[1]!==mode)){ L=p[0]; go(p[1]); } });
-/* ---------- players + high scores ---------- */
+/* ---------- players + badges ---------- */
 const whoBtn=document.getElementById('whoBtn'), whoDlg=document.getElementById('whoDlg'), hsDlg=document.getElementById('hsDlg');
 const totalOf = p=>Object.values(p.stars||{}).reduce((a,b)=>a+b,0);
 function paintWho(){ const n=saved.current; whoBtn.innerHTML = n ? avatar(n)+`<span class="nm">${esc(n)}</span>` : `<span class="av" style="background:var(--sun);color:var(--sea-deep)">?</span><span class="nm">Who's playing?</span>`; }
-function pickPlayer(n){ saved.current=n; save(); paintWho(); renderTabs(); try{whoDlg.close();}catch(e){} sTap(); say('Hi '+n+'! Let\'s play.'); }
+function pickPlayer(n){ saved.current=n; save(); paintWho(); renderTabs(); try{whoDlg.close();}catch(e){} sTap(); ruth('hi','Hi '+n+'! Let\'s play.'); }
 function openWho(forced){
   const names=Object.keys(saved.players);
   whoDlg.innerHTML=`<div class="hd"><h2>Who's playing?</h2>${forced&&!saved.current?'':'<button class="x" type="button" data-close aria-label="Close">×</button>'}</div>
-  <div class="bd">${names.length?`<div class="plist">${names.map(n=>`<button class="pbtn" type="button" data-p="${esc(n)}" aria-pressed="${n===saved.current}">${avatar(n)}<span class="pn">${esc(n)}</span><span class="ps">★ ${totalOf(saved.players[n])}</span></button>`).join('')}</div>`:''}
+  <div class="bd">${names.length?`<div class="plist">${names.map(n=>`<button class="pbtn" type="button" data-p="${esc(n)}" aria-pressed="${n===saved.current}">${avatar(n)}<span class="pn">${esc(n)}</span><span class="ps">★ ${totalOf(saved.players[n])} · 🏅 ${badgeCount(saved.players[n])}</span></button>`).join('')}</div>`:''}
   <label class="lbl" for="newName">${names.length?'New player':'Type your name to start'}</label>
   <form class="addrow" id="addForm"><input id="newName" maxlength="12" autocomplete="off" autocapitalize="words" placeholder="Your name"><button class="btn" type="submit">Play</button></form></div>`;
   whoDlg.querySelectorAll('[data-p]').forEach(b=>b.onclick=()=>pickPlayer(b.dataset.p));
@@ -836,20 +865,15 @@ function openWho(forced){
   try{ whoDlg.showModal(); }catch(e){ whoDlg.setAttribute('open',''); }
   if(!names.length) setTimeout(()=>{ try{whoDlg.querySelector('#newName').focus();}catch(e){} },50);
 }
-const GAMELIST = ()=>LESSONS.flatMap(les=>les.modes.filter(m=>m!=='learn').map(m=>({g:les.id+':'+m, label:les.short+' · '+MODES[m].name})));
-function openHS(g){
-  const list=GAMELIST(); if(!list.some(x=>x.g===g)) g=(saved.scores.slice().sort((a,b)=>b.d-a.d)[0]||list[0]).g;
-  const champs=Object.keys(saved.players).map(n=>({n,t:totalOf(saved.players[n])})).sort((a,b)=>b.t-a.t);
-  hsDlg.innerHTML=`<div class="hd"><h2>High Scores</h2><button class="x" type="button" data-close aria-label="Close">×</button></div>
-  <div class="bd"><label class="lbl" for="hsGame">Game</label><select id="hsGame">${list.map(x=>`<option value="${x.g}"${x.g===g?' selected':''}>${esc(x.label)}</option>`).join('')}</select>
-  <div id="hsBoard">${boardHTML(g)}</div>
-  <div class="arcade"><h3>STAR CHAMPS</h3>${champs.length?`<table>${champs.map((x,i)=>`<tr><td class="r">${i+1}.</td><td>${esc(x.n)}</td><td class="s">★ ${x.t}</td></tr>`).join('')}</table>`:'<p class="empty">No players yet.</p>'}</div></div>`;
+function openHS(){
+  const p=me(), nm=saved.current;
+  hsDlg.innerHTML=`<div class="hd"><h2>${nm?esc(nm)+"'s badges":'Badges'}</h2><button class="x" type="button" data-close aria-label="Close">×</button></div>
+  <div class="bd"><p class="hsnote" style="margin-bottom:.6rem">${p?`${badgeCount(p)} of ${BADGES.length} badges · ${p.games||0} games played`:'Pick a player to start earning badges.'}</p>${badgesHTML(p)}</div>`;
   hsDlg.querySelector('[data-close]').onclick=()=>hsDlg.close();
-  hsDlg.querySelector('#hsGame').onchange=e=>{ hsDlg.querySelector('#hsBoard').innerHTML=boardHTML(e.target.value); };
   try{ hsDlg.showModal(); }catch(e){ hsDlg.setAttribute('open',''); }
 }
 whoBtn.onclick=()=>{ sTap(); openWho(false); };
-document.getElementById('hsBtn').onclick=()=>{ sTap(); openHS(L.id+':'+mode); };
+document.getElementById('hsBtn').onclick=()=>{ sTap(); openHS(); };
 paintWho();
 renderTabs(); GAMES[mode]();
 if(!saved.current) openWho(true);
