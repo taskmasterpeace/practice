@@ -47,6 +47,44 @@ button:focus-visible,.chip:focus-visible{outline:3px solid var(--sun);outline-of
 .starbox{background:rgba(255,255,255,.12);border-radius:999px;padding:6px 14px;font-family:var(--display);font-size:1.15rem;display:flex;align-items:center;gap:6px;font-variant-numeric:tabular-nums}
 .iconbtn{background:rgba(255,255,255,.12);border:0;border-radius:999px;width:40px;height:40px;display:grid;place-items:center;transition:background .2s}
 .iconbtn:hover{background:rgba(255,255,255,.24)}
+.playerbtn{background:rgba(255,255,255,.12);border:0;border-radius:999px;height:40px;padding:4px 14px 4px 4px;display:flex;align-items:center;gap:8px;color:#fff;font-weight:800;transition:background .2s;max-width:180px}
+.playerbtn:hover{background:rgba(255,255,255,.24)}
+.playerbtn .nm{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.av{flex:none;width:48px;height:48px;border-radius:50%;display:grid;place-items:center;color:#fff;font-family:var(--display);font-size:1.5rem;line-height:1}
+.playerbtn .av{width:32px;height:32px;font-size:1.05rem}
+dialog.mq{border:0;border-radius:20px;padding:0;width:min(560px,calc(100vw - 32px));max-width:none;color:var(--ink);box-shadow:0 20px 60px rgba(0,0,0,.35)}
+dialog.mq::backdrop{background:rgba(11,79,108,.55)}
+.mq .hd{background:var(--sea-deep);color:#fff;padding:14px 18px;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.mq .hd h2{font-family:var(--display);margin:0;font-size:1.5rem;line-height:1.1}
+.mq .bd{padding:16px 18px 18px;display:flex;flex-direction:column;gap:14px;max-height:72vh;overflow:auto;background:var(--foam)}
+.mq .x{background:rgba(255,255,255,.14);border:0;border-radius:999px;width:38px;height:38px;color:#fff;font-size:1.3rem;transition:background .2s}
+.mq .x:hover{background:rgba(255,255,255,.28)}
+.plist{display:grid;grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:10px}
+.pbtn{border:2px solid var(--border);background:var(--card);border-radius:16px;padding:12px 8px;display:flex;flex-direction:column;align-items:center;gap:6px;font-weight:800;transition:all .2s;min-width:0}
+.pbtn:hover{border-color:var(--sea-mid);transform:translateY(-2px);box-shadow:0 6px 16px rgba(11,79,108,.15)}
+.pbtn[aria-pressed="true"]{border-color:var(--go);background:var(--go-soft)}
+.pbtn .pn{max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pbtn .ps{color:#c98c0b;font-size:.9rem}
+.addrow{display:flex;gap:8px}
+.addrow input{flex:1;min-width:0;font:inherit;font-size:1.1rem;font-weight:700;padding:10px 12px;border:2px solid var(--border);border-radius:12px;background:#fff;color:var(--ink)}
+.addrow input:focus{outline:3px solid var(--sun);border-color:var(--sea-mid)}
+.mq label.lbl{font-weight:800;font-size:.9rem;color:var(--muted)}
+.mq select{font:inherit;font-weight:700;padding:9px 12px;border:2px solid var(--border);border-radius:12px;background:#fff;color:var(--ink);width:100%}
+.arcade{background:#0d1b2a;color:#ffe9a8;border-radius:14px;padding:12px 14px;font-family:var(--display);text-align:left;width:100%;max-width:440px;margin:0 auto;box-shadow:inset 0 0 0 3px #1f3b55}
+.arcade h3{margin:0 0 6px;text-align:center;letter-spacing:.14em;color:var(--sun);font-size:1.2rem}
+.arcade table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;font-size:1.05rem}
+.arcade td{padding:3px 6px;white-space:nowrap}
+.arcade td:nth-child(2){max-width:9em;overflow:hidden;text-overflow:ellipsis}
+.arcade td.r{color:#8fb6c4;width:2.4em}
+.arcade td.s{text-align:right}
+.arcade td.dt{color:#8fb6c4;font-size:.85rem}
+.arcade tr.me td{color:#7dffb0}
+.arcade .empty{text-align:center;color:#8fb6c4;font-family:var(--body);margin:4px 0}
+.newhs{font-family:var(--display);color:var(--coral);font-size:1.5rem;letter-spacing:.06em;animation:hsblink .5s steps(2) 8}
+.newhs.small{font-size:1.15rem;color:var(--go)}
+.hsnote{margin:0;color:var(--muted);font-size:.92rem}
+@keyframes hsblink{50%{opacity:.25}}
+@media (prefers-reduced-motion:reduce){.newhs{animation:none}}
 
 /* mode tabs */
 .modes{display:flex;flex-wrap:wrap;gap:8px}
@@ -235,14 +273,16 @@ canvas.confetti{position:fixed;inset:0;width:100%;height:100%;pointer-events:non
     </div>
     <div class="tally">
       <div class="starbox" title="Stars earned"><svg width="22" height="22" viewBox="0 0 24 24"><path d="M12 2l3 6.6 7.2.8-5.4 4.9 1.5 7.1L12 17.8 5.7 21.4l1.5-7.1L1.8 9.4 9 8.6z" fill="#ffbf3c"/></svg><span id="starTotal">0</span><span style="opacity:.6" id="starMax">/ 51</span></div>
-      <button class="iconbtn" id="voiceBtn" aria-label="Read aloud" title="Read aloud"></button><button class="iconbtn" id="soundBtn" aria-label="Sound effects" title="Sound effects"></button><button class="iconbtn" id="resetBtn" aria-label="Start over" title="Start over: clear all stars"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>
+      <button class="playerbtn" id="whoBtn" aria-label="Change player" title="Who's playing?"></button><button class="iconbtn" id="hsBtn" aria-label="High scores" title="High scores"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0z"/><path d="M17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg></button><button class="iconbtn" id="voiceBtn" aria-label="Read aloud" title="Read aloud"></button><button class="iconbtn" id="soundBtn" aria-label="Sound effects" title="Sound effects"></button><button class="iconbtn" id="resetBtn" aria-label="Start over" title="Start over: clear this player&#39;s stars"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg></button>
     </div>
   </header>
 
   <nav class="lessons" id="lessons" aria-label="Lessons"></nav>
   <nav class="modes" id="modes" aria-label="Games"></nav>
   <main id="main"></main>
-  <p class="foot">Tip for grown-ups: start with <b>Explore</b>, then <b>Find It</b> and <b>Label the Map</b>. Tap the speech bubble at the top to turn reading aloud on or off. Stars save on this device.</p>
+  <p class="foot">Tip for grown-ups: start with <b>Explore</b>, then <b>Find It</b> and <b>Label the Map</b>. Tap the speech bubble at the top to turn reading aloud on or off. Tap the name at the top to switch players, and the trophy for high scores. Stars and scores save on this device.</p>
+  <dialog class="mq" id="whoDlg"></dialog>
+  <dialog class="mq" id="hsDlg"></dialog>
 </div>
 
 <script>
@@ -402,12 +442,38 @@ const ico = (n,s=18)=>`<svg width="${s}" height="${s}" viewBox="0 0 24 24" fill=
 const STAR = on=>`<svg viewBox="0 0 24 24" class="${on?'on':''}"><path d="M12 2l3 6.6 7.2.8-5.4 4.9 1.5 7.1L12 17.8 5.7 21.4l1.5-7.1L1.800 9.400 9 8.600z" fill="${on?'#ffbf3c':'#dde8ea'}" stroke="${on?'#c98c0b':'#c3d3d6'}" stroke-width="1"/></svg>`;
 
 /* ---------- storage ---------- */
-let saved = {stars:{}, sound:true, voice:true};
+/* 11-12 Robert: arcade style. Each player has their own stars; every finished round goes on a high-score board. */
+let saved = {players:{}, current:'', scores:[], sound:true, voice:true};
 try{ const s = JSON.parse(localStorage.getItem('cmq')||'null'); if(s) saved = Object.assign(saved,s);}catch(e){}
-for(const k of Object.keys(saved.stars)){ if(!k.includes(':')){ saved.stars['carib:'+k]=Math.max(saved.stars['carib:'+k]||0,saved.stars[k]); delete saved.stars[k]; } }
+if(saved.stars){ const old=saved.stars; delete saved.stars;   // older one-player save -> "Player 1"
+  for(const k of Object.keys(old)){ if(!k.includes(':')){ old['carib:'+k]=Math.max(old['carib:'+k]||0,old[k]); delete old[k]; } }
+  if(Object.keys(old).length){ saved.players['Player 1']={stars:old}; if(!saved.current) saved.current='Player 1'; } }
+if(!saved.players || typeof saved.players!=='object') saved.players={};
+if(!Array.isArray(saved.scores)) saved.scores=[];
+if(!saved.players[saved.current]) saved.current='';
+const me = ()=>saved.current ? saved.players[saved.current] : null;
 function save(){ try{localStorage.setItem('cmq',JSON.stringify(saved));}catch(e){} }
-const starsOf = (les,m)=>saved.stars[les.id+':'+m]||0;
-function setStars(m,n){ const key=L.id+':'+m; if((saved.stars[key]||0)<n){saved.stars[key]=n; save();} renderTabs(); }
+const starsOf = (les,m)=>(me()?me().stars[les.id+':'+m]:0)||0;
+function setStars(m,n){ const p=me(); if(p){ const key=L.id+':'+m; if((p.stars[key]||0)<n){p.stars[key]=n; save();} } renderTabs(); }
+const esc = t=>String(t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const AVC = ['#f26b4f','#1f9d5c','#1f7a96','#d4880b','#d64592','#2b6cb0'];
+const avColor = n=>AVC[[...String(n)].reduce((a,c)=>a+c.charCodeAt(0),0)%AVC.length];
+const avatar = n=>`<span class="av" style="background:${avColor(n)}">${esc(String(n).trim().charAt(0).toUpperCase()||'?')}</span>`;
+const pct = e=>e.t?e.s/e.t:0;
+const byRank = (a,b)=>pct(b)-pct(a) || b.s-a.s || a.d-b.d;     // tie: whoever got it first stays on top, like the arcade
+function addScore(g,score,total,st){
+  const e={id:Date.now()+'-'+Math.random().toString(36).slice(2,6), n:saved.current||'Player', g, s:score, t:total, st, d:Date.now()};
+  saved.scores.push(e);
+  const mine=saved.scores.filter(x=>x.g===g).sort(byRank), keep=new Set(mine.slice(0,10).map(x=>x.id));
+  saved.scores=saved.scores.filter(x=>x.g!==g||keep.has(x.id)); save();
+  const r=mine.findIndex(x=>x.id===e.id)+1; return {rank:r<=10?r:0, id:e.id};
+}
+function boardHTML(g,hi,max=10){
+  const rows=saved.scores.filter(x=>x.g===g).sort(byRank).slice(0,max);
+  const day=d=>new Date(d).toLocaleDateString(undefined,{month:'short',day:'numeric'});
+  return `<div class="arcade"><h3>HIGH SCORES</h3>`+(rows.length?`<table>${rows.map((x,i)=>`<tr class="${x.id===hi?'me':''}"><td class="r">${i+1}.</td><td>${esc(x.n)}</td><td class="s">${x.s}/${x.t}</td><td class="s">${'★'.repeat(x.st)||'·'}</td><td class="s dt">${day(x.d)}</td></tr>`).join('')}</table>`
+    :`<p class="empty">No scores yet. Finish a round to get on the board!</p>`)+`</div>`;
+}
 
 /* ---------- sound + voice ---------- */
 let actx=null;
@@ -449,8 +515,9 @@ soundBtn.onclick=()=>{saved.sound=!saved.sound;save();paintToggles();sTap();};
 voiceBtn.onclick=()=>{saved.voice=!saved.voice;save();paintToggles(); if(saved.voice) say('Read aloud is on.'); else { try{speechSynthesis.cancel();}catch(e){} } };
 paintToggles();
 /* reset (11-12 Robert: practice again tonight, needs a way to start over). Also ?reset=1 in the link. */
-function resetAll(){ saved.stars={}; save(); location.replace(location.pathname); }
-document.getElementById('resetBtn').onclick=()=>{ if(confirm('Start over? This clears every star on this iPad.')) resetAll(); };
+function resetAll(){ saved.players={}; saved.current=''; saved.scores=[]; save(); location.replace(location.pathname); }
+document.getElementById('resetBtn').onclick=()=>{ const p=me(); if(!p){ openWho(true); return; }
+  if(confirm(`Start over for ${saved.current}? This clears ${saved.current}'s stars. The high scores stay.`)){ p.stars={}; save(); renderTabs(); say('Fresh start, '+saved.current+'!'); } };
 if(/[?&]reset=1/.test(location.search)) resetAll();
 
 /* ---------- helpers ---------- */
@@ -459,7 +526,7 @@ const shuffle = a=>{a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.floor
 const pick = (arr,n,not)=>shuffle(arr.filter(x=>x!==not)).slice(0,n);
 const flag = it=>FLAGS[it.flag];
 const main = document.getElementById('main');
-const starCount = n=>n>=9?3:n>=7?2:n>=4?1:0;
+const starsFor = (score,total)=>{ const f=total?score/total:0; return f>=.9?3:f>=.7?2:f>=.4?1:0; };
 const thumb = it=> it.flag ? `<img src="${flag(it)}" alt="">` : `<span class="kthumb k-${it.plate}">${ico(it.plate,26)}</span>`;
 
 /* ---------- map drawing ---------- */
@@ -525,16 +592,20 @@ function go(m){ mode=m; try{history.replaceState(null,'','#'+L.id+'-'+m);}catch(
 function nextStop(modeId){ const i=L.modes.indexOf(modeId); if(i<L.modes.length-1) return {label:MODES[L.modes[i+1]].name, run:()=>go(L.modes[i+1])};
   const nl=LESSONS[(LESSONS.indexOf(L)+1)%LESSONS.length]; return {label:nl.short, run:()=>{L=nl;go('learn');}}; }
 function finish(modeId,score,total){
-  const st = starCount(Math.round(score*9/total));
+  const st = starsFor(score,total), prev = starsOf(L,modeId), nm = saved.current||'Player';
   setStars(modeId,st);
+  const hs = addScore(L.id+':'+modeId,score,total,st);
   if(st>=1) sWin();
-  if(st>=2) confetti();
-  const cheer = st===3?'Perfect! You are a map master!':st===2?'Great job! Almost perfect.':st===1?'Nice work! Try again for more stars.':'Good practice! Play again to earn a star.';
-  say(cheer);
-  return `<div class="result"><div class="eyebrow">Round complete</div>
+  if(st>=2 || hs.rank===1) confetti();
+  const cheer = st===3?`Perfect, ${nm}! You are a map master!`:st===2?`Great job, ${nm}! Almost perfect.`:st===1?`Nice work, ${nm}! Try again for more stars.`:`Good practice, ${nm}! Play again to earn a star.`;
+  const flash = hs.rank===1 ? '<div class="newhs">NEW HIGH SCORE!</div>' : hs.rank ? `<div class="newhs small">You made the board: #${hs.rank}</div>` : '';
+  const note = st<prev ? `Your best here is still ${prev} star${prev>1?'s':''}. Your star count keeps your best round.` : (st>prev && prev>0 ? `New best! Up from ${prev} star${prev>1?'s':''}.` : '');
+  say(cheer + (hs.rank===1?' New high score!':''));
+  return `<div class="result"><div class="eyebrow">Round complete · ${esc(nm)}</div>${flash}
     <div class="stars">${[0,1,2].map(i=>`<span style="animation-delay:${i*.15}s;display:inline-block">${STAR(i<st)}</span>`).join('')}</div>
     <h2 style="font-family:var(--display);font-size:2rem;margin:0">${score} / ${total}</h2>
-    <p style="margin:0;font-weight:700">${cheer}</p>
+    <p style="margin:0;font-weight:700">${esc(cheer)}</p>${note?`<p class="hsnote">${note}</p>`:''}
+    ${boardHTML(L.id+':'+modeId,hs.id,5)}
     <div class="row" style="justify-content:center"><button class="btn" id="again">Play again</button><button class="btn ghosty" id="nextg">Next: ${nextStop(modeId).label}</button></div></div>`;
 }
 function wireFinish(again,modeId){ $('#again').onclick=()=>{sTap();again();}; $('#nextg').onclick=()=>{sTap();nextStop(modeId).run();}; }
@@ -746,6 +817,41 @@ function confetti(){
 }
 
 window.addEventListener('hashchange',()=>{ const p=parseHash(); if(p&&(p[0]!==L||p[1]!==mode)){ L=p[0]; go(p[1]); } });
+/* ---------- players + high scores ---------- */
+const whoBtn=document.getElementById('whoBtn'), whoDlg=document.getElementById('whoDlg'), hsDlg=document.getElementById('hsDlg');
+const totalOf = p=>Object.values(p.stars||{}).reduce((a,b)=>a+b,0);
+function paintWho(){ const n=saved.current; whoBtn.innerHTML = n ? avatar(n)+`<span class="nm">${esc(n)}</span>` : `<span class="av" style="background:var(--sun);color:var(--sea-deep)">?</span><span class="nm">Who's playing?</span>`; }
+function pickPlayer(n){ saved.current=n; save(); paintWho(); renderTabs(); try{whoDlg.close();}catch(e){} sTap(); say('Hi '+n+'! Let\'s play.'); }
+function openWho(forced){
+  const names=Object.keys(saved.players);
+  whoDlg.innerHTML=`<div class="hd"><h2>Who's playing?</h2>${forced&&!saved.current?'':'<button class="x" type="button" data-close aria-label="Close">×</button>'}</div>
+  <div class="bd">${names.length?`<div class="plist">${names.map(n=>`<button class="pbtn" type="button" data-p="${esc(n)}" aria-pressed="${n===saved.current}">${avatar(n)}<span class="pn">${esc(n)}</span><span class="ps">★ ${totalOf(saved.players[n])}</span></button>`).join('')}</div>`:''}
+  <label class="lbl" for="newName">${names.length?'New player':'Type your name to start'}</label>
+  <form class="addrow" id="addForm"><input id="newName" maxlength="12" autocomplete="off" autocapitalize="words" placeholder="Your name"><button class="btn" type="submit">Play</button></form></div>`;
+  whoDlg.querySelectorAll('[data-p]').forEach(b=>b.onclick=()=>pickPlayer(b.dataset.p));
+  const c=whoDlg.querySelector('[data-close]'); if(c) c.onclick=()=>whoDlg.close();
+  whoDlg.querySelector('#addForm').onsubmit=ev=>{ ev.preventDefault(); const n=whoDlg.querySelector('#newName').value.trim().replace(/\s+/g,' ').slice(0,12);
+    if(!n) return; if(!saved.players[n]) saved.players[n]={stars:{}}; pickPlayer(n); };
+  whoDlg.oncancel=ev=>{ if(!saved.current) ev.preventDefault(); };
+  try{ whoDlg.showModal(); }catch(e){ whoDlg.setAttribute('open',''); }
+  if(!names.length) setTimeout(()=>{ try{whoDlg.querySelector('#newName').focus();}catch(e){} },50);
+}
+const GAMELIST = ()=>LESSONS.flatMap(les=>les.modes.filter(m=>m!=='learn').map(m=>({g:les.id+':'+m, label:les.short+' · '+MODES[m].name})));
+function openHS(g){
+  const list=GAMELIST(); if(!list.some(x=>x.g===g)) g=(saved.scores.slice().sort((a,b)=>b.d-a.d)[0]||list[0]).g;
+  const champs=Object.keys(saved.players).map(n=>({n,t:totalOf(saved.players[n])})).sort((a,b)=>b.t-a.t);
+  hsDlg.innerHTML=`<div class="hd"><h2>High Scores</h2><button class="x" type="button" data-close aria-label="Close">×</button></div>
+  <div class="bd"><label class="lbl" for="hsGame">Game</label><select id="hsGame">${list.map(x=>`<option value="${x.g}"${x.g===g?' selected':''}>${esc(x.label)}</option>`).join('')}</select>
+  <div id="hsBoard">${boardHTML(g)}</div>
+  <div class="arcade"><h3>STAR CHAMPS</h3>${champs.length?`<table>${champs.map((x,i)=>`<tr><td class="r">${i+1}.</td><td>${esc(x.n)}</td><td class="s">★ ${x.t}</td></tr>`).join('')}</table>`:'<p class="empty">No players yet.</p>'}</div></div>`;
+  hsDlg.querySelector('[data-close]').onclick=()=>hsDlg.close();
+  hsDlg.querySelector('#hsGame').onchange=e=>{ hsDlg.querySelector('#hsBoard').innerHTML=boardHTML(e.target.value); };
+  try{ hsDlg.showModal(); }catch(e){ hsDlg.setAttribute('open',''); }
+}
+whoBtn.onclick=()=>{ sTap(); openWho(false); };
+document.getElementById('hsBtn').onclick=()=>{ sTap(); openHS(L.id+':'+mode); };
+paintWho();
 renderTabs(); GAMES[mode]();
+if(!saved.current) openWho(true);
 </script>
 </body></html>
